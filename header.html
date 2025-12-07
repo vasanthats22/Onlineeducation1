@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Paper - Home1</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      padding-top: 80px; /* space for fixed header */
+      background: #f5f5f5;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      background: #028090; /* Updated header color */
+      padding: 15px 5%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Logo */
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    /* Navigation */
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      display: block;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: #f68b3a; /* hover color */
+      border-radius: 4px;
+    }
+
+    /* Home Dropdown */
+    .home-link {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .home-link span {
+      margin-left: 5px;
+      font-size: 14px;
+      color: #fff;
+      user-select: none;
+    }
+
+    nav ul li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #056d78; /* dropdown color */
+      min-width: 150px;
+      display: none;
+      flex-direction: column;
+      border-radius: 4px;
+      z-index: 2000;
+    }
+
+    nav ul li ul li a {
+      padding: 10px 15px;
+    }
+
+    @media (min-width: 769px) {
+      nav ul li:hover > ul {
+        display: flex;
+      }
+    }
+
+    /* Mobile Menu Button */
+    .menu-btn {
+      display: none;
+      font-size: 26px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #056d78; /* mobile menu background */
+        display: none;
+        flex-direction: column;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul li ul {
+        position: static;
+        width: 100%;
+        display: none;
+      }
+
+      nav ul li.show-submenu > ul {
+        display: block;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Start -->
+  <header>
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="Stacklylogo.webp" alt="online education logo">
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="menu-btn">☰</div>
+
+    <!-- Navigation -->
+    <nav id="navBar">
+      <ul>
+        <!-- Home Dropdown -->
+        <li>
+          <div class="home-link">
+            <a href="index.html">Home</a>
+            <span>▼</span>
+          </div>
+          <ul>
+            <li><a href="home2.html">Home2</a></li>
+          </ul>
+        </li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="liveclasses.html">Live Classes</a></li>
+        <li><a href="studymaterials.html">Study Materials</a></li>
+        <li><a href="examsandquizzes.html">Exams & Quizzes</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Header End -->
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const navBar = document.getElementById('navBar');
+
+    menuBtn.addEventListener('click', () => {
+      navBar.classList.toggle('active');
+    });
+
+    // Toggle Home dropdown in mobile view
+    const homeLink = document.querySelector('.home-link span');
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      homeLink.parentElement.parentElement.classList.toggle('show-submenu');
+    });
+  </script>
+
+</body>
+</html>

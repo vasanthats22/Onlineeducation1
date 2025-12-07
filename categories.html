@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories - Online Education</title>
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html, body{
+    width:100%;
+    overflow-x:hidden; /* remove horizontal scroll */
+    font-family:Arial, sans-serif;
+    background:#f9f9f9;
+    color:#222;
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+/* HERO */
+.hero{
+    background:url('course1.webp') center/cover no-repeat;
+    background-size:cover;
+    color:white;
+    padding:100px 20px;
+}
+.hero h1{
+    font-size:38px;
+    font-weight:700;
+}
+.hero p{
+    max-width:700px;
+    margin:20px auto;
+    font-size:18px;
+}
+
+/* GRID OF CATEGORIES */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+    width:100%;
+}
+.card{
+    background:white;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.card img{
+    width:100%;
+    max-width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.card h3{
+    margin:15px 0 10px;
+}
+.card p{
+    font-size:14px;
+    color:#555;
+}
+.card a{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    background:#007bff;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* LIST SECTION */
+.list-section ul{
+    list-style:none;
+    max-width:700px;
+    margin:auto;
+    text-align:left;
+    padding:0;
+}
+.list-section li{
+    background:white;
+    margin:12px 0;
+    padding:14px 18px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* IMAGE + TEXT SECTION */
+.flex{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:100%;
+    max-width:100%;
+}
+.flex img{
+    width:100%;
+    max-width:380px;
+    height:auto;
+    border-radius:10px;
+    flex-shrink:0;
+}
+.flex div{
+    flex:1;
+    min-width:260px;
+    text-align:left;
+}
+.flex div h2{
+    margin-bottom:15px;
+}
+.start-btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:12px 20px;
+    background:#007bff;
+    color:white;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* CTA */
+.cta{
+    background:#0066cc;
+    color:white;
+    padding:70px 20px;
+    border-radius:10px;
+}
+.cta a{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 26px;
+    background:white;
+    color:#0066cc;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* MOBILE FIXES */
+@media(max-width:900px){
+    .flex div{text-align:center;}
+}
+@media(max-width:600px){
+    .hero h1{font-size:28px;}
+    .cta{padding:50px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Explore Course Categories</h1>
+    <p>Learn anything you want! Choose from top-quality categories designed for all learners.</p>
+</section>
+
+<!-- GRID -->
+<section>
+    <h2>Popular Categories</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="exam7.webp" alt="">
+            <h3>Technology</h3>
+            <p>Programming, AI, Machine Learning, Data Science and more.</p>
+            <a href="4042.html">Explore</a>
+        </div>
+        <div class="card">
+            <img src="exam8.webp" alt="">
+            <h3>Business</h3>
+            <p>Marketing, Management, Sales, Entrepreneurship.</p> <br>
+            <a href="4042.html">Explore</a>
+        </div>
+        <div class="card">
+            <img src="exam9.webp" alt="">
+            <h3>Design</h3>
+            <p>UI/UX, Graphic Design, Animation, Creative Tools.</p> <br>
+            <a href="4042.html">Explore</a>
+        </div>
+    </div>
+</section>
+
+<!-- LIST -->
+<section class="list-section">
+    <h2>All Categories</h2>
+    <ul>
+        <li>Health & Fitness Courses</li>
+        <li>Language Learning Courses</li>
+        <li>Arts & Creativity Courses</li>
+        <li>Career Development</li>
+        <li>Science & Engineering</li>
+    </ul>
+</section>
+
+<!-- IMAGE + TEXT -->
+<section>
+    <div class="flex">
+        <img src="exam0.webp" alt="">
+        <div>
+            <h2>Learn From Any Category</h2>
+            <p>Choose any course category and start learning with high-quality instructors, structured lessons, and project-based training.</p>
+            <a href="4042.html" class="start-btn">Start Learning</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Ready to Explore More?</h2>
+    <p>Dive into thousands of courses across hundreds of categories.</p>
+    <a href="4042.html">Browse All Categories</a>
+</section>
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '4042.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popular Courses - Online Education</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+    background:#f6f6f6;
+    overflow-x:hidden;
+}
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#222;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    margin-top:15px;
+}
+img{
+    max-width:100%;
+    border-radius:12px;
+}
+
+/* 1. HERO */
+.hero{
+    background:url(online1.webp)center/cover no-repeat;
+    color: aqua;
+    padding:100px 20px;
+
+}
+.hero h1{
+    font-size:36px;
+}
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+    color:red;
+}
+
+/* 2. 3-COLUMN COURSE GRID */
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+.course-card{
+    background:white;
+    border-radius:12px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.1);
+    padding:20px;
+}
+.course-card img{
+    height:160px;
+    object-fit:cover;
+    width:100%;
+}
+.course-card h3{
+    margin-top:10px;
+    font-size:20px;
+}
+.course-card p{
+    margin-top:8px;
+    color:#666;
+    font-size:15px;
+}
+
+/* 3. IMAGE + TEXT SECTION */
+.flex{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.flex img{
+    width:50%;
+}
+
+/* 4. FULL WIDTH SECTION */
+.bg-section{
+    /* background:url('online1.webp') center/cover no-repeat; */
+    color:rgb(24, 2, 2);
+    padding:100px 20px;
+    background: #37e7af;
+}
+
+/* 5. 4-COLUMN FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+.feature-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    font-size:17px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 6. POPULAR SUBJECTS LIST */
+.subject-box{
+    background:white;
+    padding:25px;
+    margin:12px auto;
+    max-width:700px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+}
+
+/* 7. CTA */
+.cta{
+    background:url(course1.webp)center/cover no-repeat;
+    color:white;
+    padding:70px 20px;
+    border-radius:12px;
+}
+
+/* MOBILE FIXES */
+@media(max-width:900px){
+    .grid-3{
+        grid-template-columns:1fr;
+    }
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+    .flex{
+        flex-direction:column;
+    }
+    .flex img{
+        width:100%;
+    }
+}
+@media(max-width:600px){
+    .features{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- 1. HERO SECTION -->
+<section class="hero">
+    <h1>Popular Courses</h1>
+    <p>Top-rated courses chosen by thousands of learners</p>
+    <a class="btn" href="4042.html">Browse All</a>
+</section>
+
+
+<!-- 2. POPULAR COURSES GRID -->
+<section>
+    <h2>Best-Selling Courses</h2>
+    <p>Hand-picked courses to boost your skills</p>
+
+    <div class="grid-3">
+
+        <div class="course-card">
+            <img src="exam6.webp">
+            <h3>Web Development Mastery</h3>
+            <p>Learn HTML, CSS, JavaScript and build complete websites.</p>
+            <a class="btn" href="4042.html">View Course</a>
+        </div>
+
+        <div class="course-card">
+            <img src="course1.webp">
+            <h3>Data Science & Analytics</h3>
+            <p>Master Python, ML algorithms, data visualisation & analysis.</p>
+            <a class="btn" href="4042.html">View Course</a>
+        </div>
+
+        <div class="course-card">
+            <img src="online3.webp">
+            <h3>Digital Marketing Expert</h3>
+            <p>SEO, ads, social media strategy & campaign management.</p>
+            <a class="btn" href="4042.html">View Course</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 3. IMAGE + TEXT SECTION -->
+<section>
+    <div class="flex">
+        <img src="live1.webp">
+        <div>
+            <h2>Learn From Experienced Instructors</h2>
+            <p>Our mentors bring real-world industry experience to make learning more practical and useful.</p>
+            <a class="btn" href="4042.html">Meet Mentors</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- 4. FULL WIDTH BG SECTION -->
+<section class="bg-section">
+    <h2>Trusted by 80,000+ Students</h2>
+    <p>We provide education that shapes careers and builds confidence.</p>
+</section>
+
+
+<!-- 5. FEATURES GRID -->
+<section>
+    <h2>Why Choose Our Courses?</h2>
+    <p>Smart learning for a smarter future</p>
+
+    <div class="features">
+        <div class="feature-box">✔ Certificate Included</div>
+        <div class="feature-box">✔ Live & Recorded Classes</div>
+        <div class="feature-box">✔ Doubt-Solving Support</div>
+        <div class="feature-box">✔ Internship Opportunities</div>
+    </div>
+</section>
+
+
+<!-- 6. POPULAR SUBJECTS LIST -->
+<section>
+    <h2>Subjects Students Love</h2>
+
+    <div class="subject-box"><strong>Programming:</strong> Python, Java, React, Node.js</div>
+    <div class="subject-box"><strong>Design:</strong> UI/UX, Graphic Design, Animation</div>
+    <div class="subject-box"><strong>Business:</strong> Finance, Sales, HR, Management</div>
+    <div class="subject-box"><strong>Tech:</strong> AI, Cloud, Cybersecurity, Robotics</div>
+
+</section>
+
+
+<!-- 7. CTA -->
+<section class="cta">
+    <h2>Start Learning Today</h2>
+    <p>Join thousands of learners transforming their future</p>
+    <a class="btn" href="4042.html">Enroll Now</a>
+</section>
+<br>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '4042.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

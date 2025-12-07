@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Materials</title>
+<style>
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #fdfdfd;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+    color: rgb(20, 5, 5);
+    background: url('study.webp') center/cover no-repeat;
+}
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.hero p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ---------- SEARCH MATERIALS SECTION ---------- */
+.search-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.search-section input[type="text"] {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+.search-section button {
+    padding: 12px 20px;
+    margin-left: 10px;
+    border:none;
+    border-radius:8px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size: 15px;
+}
+.search-section button:hover { background:#e16f00; }
+
+/* ---------- FEATURED MATERIALS GRID ---------- */
+.featured-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.featured-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+.featured-box:hover { transform: translateY(-5px); }
+.featured-box h3 { font-size: 18px; margin-bottom: 10px; }
+.featured-box p { font-size: 14px; color: #555; }
+.featured-box button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #ff8300;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* ---------- TOPICS LIST ---------- */
+.topics-section {
+    padding: 40px 20px;
+    background:#f5faff;
+}
+.topics-section h2 { text-align: center; font-size: 26px; margin-bottom: 25px; }
+.topics-list {
+    max-width: 900px;
+    margin: auto;
+}
+.topics-list li {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 15px;
+    list-style-type: square;
+}
+
+/* ---------- DOWNLOADABLE RESOURCES ---------- */
+.download-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr); /* 2 columns desktop */
+    gap: 20px;
+    max-width: 600px;
+    margin:auto;
+}
+.download-box {
+    background: #fff8e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+.download-box:hover { transform: translateY(-5px);}
+.download-box h3 { font-size: 18px; margin-bottom: 10px;}
+.download-box button {
+    padding: 8px 16px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* ---------- VIDEO LECTURES ---------- */
+.video-section {
+    padding:40px 20px;
+}
+.video-section h2 { text-align:center; font-size:26px; margin-bottom:25px;}
+.video-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    max-width: 1000px;
+    margin:auto;
+}
+.video-box {
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+.video-box iframe {
+    width:100%;
+    height:150px;
+    border-radius:8px;
+}
+
+/* ---------- STUDY TIPS ---------- */
+.tips-section {
+    padding:40px 20px;
+    background:#f0f7ff;
+    text-align:center;
+}
+.tips-section h2 { font-size:26px; margin-bottom:20px;}
+.tips-list li {
+    font-size:15px;
+    margin-bottom:10px;
+    list-style-type: disc;
+    max-width: 700px;
+    margin:auto;
+}
+
+/* ---------- SUCCESS STORIES ---------- */
+.success-section {
+    padding:40px 20px;
+    text-align:center;
+}
+.success-box {
+    max-width:700px;
+    background:white;
+    padding:20px;
+    margin:15px auto;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    font-size:15px;
+    color:#333;
+}
+
+/* ---------- CALL TO ACTION ---------- */
+.cta {
+    padding:50px 20px;
+    text-align:center;
+    background:#fff1cc;
+}
+.cta h2 { font-size:26px; margin-bottom:15px;}
+.cta button {
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* ---------- BUTTON HOVER ---------- */
+.featured-box button:hover,
+.download-box button:hover,
+.search-section button:hover,
+.video-box button:hover,
+.cta button:hover {
+    background:#e16f00;
+}
+
+/* ---------- RESPONSIVE FIX ---------- */
+@media(max-width:600px){
+    .hero h1{ font-size:26px; }
+    .featured-box, .download-box, .video-box { padding:15px; }
+    .video-box iframe { height:120px; }
+    .download-grid { grid-template-columns: 1fr; } /* 1 column mobile */
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Study Materials</h1>
+    <p>Explore comprehensive materials, videos, PDFs, and guides to enhance your learning.</p>
+</section>
+
+<!-- SEARCH -->
+<!-- <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search Study Materials...">
+    <button onclick="validateSearch()">Search</button>
+    <div id="searchAlert" style="color:red; margin-top:8px; font-size:14px;"></div>
+</section> -->
+
+
+<!-- FEATURED MATERIALS -->
+<section class="featured-section">
+    <h2>Featured Materials</h2>
+    <div class="featured-grid">
+        <div class="featured-box">
+            <h3>Mathematics Notes</h3>
+            <p>Complete formulas and examples</p>
+            <button onclick="location.href='404.html'">View</button>
+        </div>
+        <div class="featured-box">
+            <h3>Science PDFs</h3>
+            <p>Detailed chapters and diagrams</p>
+            <button onclick="location.href='404.html'">View</button>
+        </div>
+        <div class="featured-box">
+            <h3>English Grammar Guide</h3>
+            <p>Rules and exercises</p>
+            <button onclick="location.href='404.html'">View</button>
+        </div>
+        <div class="featured-box">
+            <h3>History Notes</h3>
+            <p>Important events summarized</p><br>
+            <button onclick="location.href='404.html'">View</button>
+        </div>
+    </div>
+</section>
+
+<!-- TOPICS LIST -->
+<section class="topics-section">
+    <h2>Popular Topics</h2>
+    <ul class="topics-list">
+        <li>Algebra & Geometry</li>
+        <li>Physics Fundamentals</li>
+        <li>Chemistry Basics</li>
+        <li>English Writing Skills</li>
+        <li>World History Overview</li>
+        <li>Computer Science Basics</li>
+    </ul>
+</section>
+
+<!-- DOWNLOADABLE RESOURCES -->
+<section class="download-section">
+    <h2>Downloadable Resources</h2>
+    <div class="download-grid">
+        <div class="download-box">
+            <h3>Math PDF</h3>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="download-box">
+            <h3>Science PDF</h3>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="download-box">
+            <h3>English PDF</h3>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="download-box">
+            <h3>History PDF</h3>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO LECTURES -->
+<section class="video-section">
+    <h2>Video Lectures</h2>
+    <div class="video-grid">
+        <div class="video-box">
+            <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe> -->
+            <iframe width="366" height="650" src="https://www.youtube.com/embed/V1kKVYUkx0Y" title="Learn English Grammar Rules 🔥📖 #english #grammar #education #learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>Mathematics Video</h3>
+        </div>
+        <div class="video-box">
+            <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe> -->
+            <iframe width="315" height="576" src="https://www.youtube.com/embed/mSRPSPFHo9U" title="DIY remote controlled Drone | science project drone model" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>Science Video</h3>
+        </div>
+        <div class="video-box">
+            <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe> -->
+            <iframe width="366" height="650" src="https://www.youtube.com/embed/V1kKVYUkx0Y" title="Learn English Grammar Rules 🔥📖 #english #grammar #education #learning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>English Video</h3>
+        </div>
+    </div>
+</section>
+
+<!-- STUDY TIPS -->
+<section class="tips-section">
+    <h2>Study Tips</h2>
+    <ul class="tips-list">
+        <li>Set a clear daily schedule</li>
+        <li>Take notes while studying</li>
+        <li>Practice past papers regularly</li>
+        <li>Join discussion groups</li>
+        <li>Use visual aids for better memory</li>
+    </ul>
+</section>
+
+<!-- SUCCESS STORIES -->
+<section class="success-section">
+    <h2>Success Stories</h2>
+    <div class="success-box">
+        "These study materials helped me achieve top grades!" – Ananya
+    </div>
+    <div class="success-box">
+        "Videos and PDFs are really helpful for exam prep." – Rohan
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Start Learning Today</h2>
+    <button onclick="location.href='404.html'">Explore Materials</button>
+</section>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+
+
+function validateSearch() {
+    const input = document.getElementById('searchInput').value.trim();
+    const alertDiv = document.getElementById('searchAlert');
+    if(input === '') {
+        alertDiv.textContent = "Please enter a search term";
+    } else {
+        alertDiv.textContent = "";
+        location.href = '404.html';
+    }
+}
+</script>
+
+
+</body>
+</html>

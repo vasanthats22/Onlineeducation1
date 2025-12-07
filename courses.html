@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html,body{width:100%;overflow-x:hidden;background:#f5f7fa;}
+
+/* ---------- HERO ---------- */
+.hero{
+    position: relative;
+    height:320px;
+    background:url('course1.webp') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    overflow:hidden;
+}
+.hero h1{font-size:36px; animation: fadeIn 1s ease forwards; opacity:0;}
+.hero p{font-size:18px;margin-top:10px; animation: fadeIn 1.2s ease forwards; opacity:0;}
+
+/* ---------- COURSE HIGHLIGHTS (Diagonal alternating) ---------- */
+.course-highlight{
+    display:flex;
+    flex-wrap:wrap;
+    padding:60px 20px;
+    align-items:center;
+    gap:20px;
+    opacity:0;
+    transform:translateX(-50px);
+    transition: all 0.8s ease;
+}
+.course-highlight.visible{opacity:1; transform:translateX(0);}
+.course-highlight:nth-child(even){flex-direction:row-reverse;}
+.course-highlight img{
+    flex:1 1 300px;
+    border-radius:12px;
+    max-width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.course-highlight .text{
+    flex:1 1 300px;
+}
+.course-highlight .text h2{font-size:26px;margin-bottom:12px;}
+.course-highlight .text p{font-size:15px;margin-bottom:12px;color:#555;}
+.course-highlight .text button{
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+.course-highlight .text button:hover{background:#e16f00;}
+
+/* ---------- INSTRUCTOR SPOTLIGHT ---------- */
+.instructor-section{
+    background:#f0f7ff;
+    padding:50px 20px;
+    text-align:center;
+}
+.instructor-section h2{font-size:26px;margin-bottom:35px;}
+.instructor-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+.instructor-card{
+    width:180px;
+    background:white;
+    border-radius:50%;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transform:scale(0.8);
+    transition: transform 0.3s ease;
+}
+.instructor-card:hover{transform:scale(1);}
+.instructor-card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-bottom:10px;
+}
+.instructor-card h3{font-size:16px;margin-bottom:5px;}
+.instructor-card p{font-size:14px;color:#555;}
+.instructor-card button{
+    margin-top:8px;
+    padding:6px 14px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+}
+
+/* ---------- RESOURCES (2x2) ---------- */
+.resources-section{
+    padding:50px 20px;
+    text-align:center;
+}
+.resources-section h2{font-size:26px;margin-bottom:35px;}
+.resources-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+.resource-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+.resource-card:hover{transform:translateY(-5px);}
+.resource-card h3{font-size:16px;margin-bottom:8px;}
+.resource-card p{font-size:14px;color:#555;}
+.resource-card button{
+    margin-top:8px;
+    padding:8px 14px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonial-section{
+    padding:50px 20px;
+    text-align:center;
+}
+.testimonial-section h2{font-size:26px;margin-bottom:35px;}
+.testimonial-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.07);
+    margin-bottom:20px;
+}
+
+/* ---------- CTA ---------- */
+.cta{
+    padding:50px 20px;
+    text-align:center;
+    background:#fff1cc;
+}
+.cta h2{font-size:26px;margin-bottom:20px;}
+.cta button{
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    animation: pulse 2s infinite;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn{
+    0%{opacity:0; transform:translateY(20px);}
+    100%{opacity:1; transform:translateY(0);}
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+    .course-highlight{flex-direction:column;}
+    .course-highlight:nth-child(even){flex-direction:column;}
+    .instructor-card{width:150px;}
+}
+@media(max-width:600px){
+    .hero h1{font-size:26px;}
+    .hero p{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Our Courses</h1>
+        <p>Learn skills with expert instructors and practical projects.</p>
+    </div>
+</section>
+
+<!-- COURSE HIGHLIGHTS -->
+<section class="course-highlight">
+    <img src="exam6.webp" alt="">
+    <div class="text">
+        <h2>Programming Courses</h2>
+        <p>Interactive coding projects from beginner to advanced.</p>
+        <button onclick="location.href='404.html'">View Courses</button>
+    </div>
+</section>
+<section class="course-highlight">
+    <img src="exam7.webp" alt="">
+    <div class="text">
+        <h2>Design Courses</h2>
+        <p>Master graphic, UI/UX and visual design principles.</p>
+        <button onclick="location.href='404.html'">View Courses</button>
+    </div>
+</section>
+
+<!-- INSTRUCTOR SPOTLIGHT -->
+<section class="instructor-section">
+    <h2>Top Instructors</h2>
+    <div class="instructor-grid">
+        <div class="instructor-card">
+            <img src="live2.webp" alt="">
+            <h3>Mr. Rahul</h3>
+            <p>Web Dev Expert</p>
+            <button onclick="location.href='404.html'">Profile</button>
+        </div>
+        <div class="instructor-card">
+            <img src="live3.webp" alt="">
+            <h3>Ms. Priya</h3>
+            <p>Design Expert</p>
+            <button onclick="location.href='404.html'">Profile</button>
+        </div>
+        <div class="instructor-card">
+            <img src="live4.webp" alt="">
+            <h3>Mr. Arjun</h3>
+            <p>Marketing Expert</p>
+            <button onclick="location.href='404.html'">Profile</button>
+        </div>
+    </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources-section">
+    <h2>Downloadable Resources</h2>
+    <div class="resources-grid">
+        <div class="resource-card">
+            <h3>Course Syllabus</h3>
+            <p>Download PDF of syllabus</p>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="resource-card">
+            <h3>Project Guide</h3>
+            <p>Step-by-step instructions</p>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="resource-card">
+            <h3>Reference Material</h3>
+            <p>Extra study resources</p>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+        <div class="resource-card">
+            <h3>Practice Sheets</h3>
+            <p>Hands-on exercises</p>
+            <button onclick="location.href='404.html'">Download</button>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-section">
+    <h2>Student Reviews</h2>
+    <div class="testimonial-box">
+        "These courses helped me advance my career quickly!" – Ananya
+    </div>
+    <div class="testimonial-box">
+        "Loved the interactive approach and learning paths." – Rohan
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Start Learning Today</h2>
+    <button onclick="location.href='404.html'">Get Started</button>
+</section>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+
+// Animate course-highlight sections on scroll
+const highlights = document.querySelectorAll('.course-highlight');
+window.addEventListener('scroll',()=>{
+    highlights.forEach(h=>{
+        const top = h.getBoundingClientRect().top;
+        const trigger = window.innerHeight - 100;
+        if(top<trigger){h.classList.add('visible');}
+    });
+});
+</script>
+</body>
+</html>

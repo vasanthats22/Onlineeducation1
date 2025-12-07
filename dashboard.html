@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Online Education Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+body{
+    background:#f4f4f4;
+    overflow-x:hidden;
+}
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+/* SIDEBAR */
+.sidebar{
+    width:250px;
+    background:#9ae4e6;     
+    color:white;
+    padding:20px;
+    flex-shrink:0;
+}
+.sidebar h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:22px;
+}
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    background:#439488;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+.sidebar button:hover{
+    background:#4372b0;
+}
+
+/* MAIN CONTENT */
+.main{
+    flex:1;
+    padding:20px;
+}
+
+/* SECTION */
+.section{display:none;}
+.section.active{display:block;}
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+/* Smaller chart size */
+canvas{
+    max-height:250px !important;
+}
+
+/* EDUCATION ITEMS */
+.edu-item{
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .layout{flex-direction:column;}
+    .sidebar{
+        width:100%;
+        text-align:center;
+    }
+    .sidebar button{
+        max-width:300px;
+        margin:10px auto;
+    }
+    .main{
+        padding:10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Online Education</h2>
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('courses')">Courses</button>
+        <button onclick="showSection('students')">Students</button>
+        <button onclick="showSection('reports')">Reports</button>
+        <button onclick="showSection('instructors')">Instructors</button>
+    </div>
+
+    <!-- MAIN AREA -->
+    <div class="main">
+
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="section active">
+            <h1>Dashboard Overview</h1>
+
+            <div class="card">
+                <h2>Enrollments Growth (Line Chart)</h2>
+                <canvas id="lineChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Course Popularity (Bar Chart)</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Student Device Usage (Pie Chart)</h2>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- COURSES -->
+        <div id="courses" class="section">
+            <h1>📚 Courses</h1>
+
+            <div class="edu-item">
+                <h2>Web Development</h2>
+                <p>Learn HTML, CSS, and JavaScript from scratch.</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Data Science</h2>
+                <p>Master Python, ML, and data analytics techniques.</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Digital Marketing</h2>
+                <p>SEO, ads, and social media strategies to grow businesses.</p>
+            </div>
+        </div>
+
+        <!-- STUDENTS -->
+        <div id="students" class="section">
+            <h1>👩‍🎓 Students</h1>
+
+            <div class="edu-item">
+                <h2>John Doe</h2>
+                <p>Enrolled in Web Development Course</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Jane Smith</h2>
+                <p>Enrolled in Data Science Course</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Mike Wilson</h2>
+                <p>Enrolled in Digital Marketing Course</p>
+            </div>
+        </div>
+
+        <!-- REPORTS -->
+        <div id="reports" class="section">
+            <h1>📊 Reports</h1>
+
+            <div class="edu-item">
+                <h2>Total Enrollments</h2>
+                <p>3,250 students enrolled this month.</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Most Popular Course</h2>
+                <p>Data Science with Python</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Top Performing Student</h2>
+                <p>John Doe with 95% completion rate</p>
+            </div>
+        </div>
+
+        <!-- INSTRUCTORS -->
+        <div id="instructors" class="section">
+            <h1>👨‍🏫 Instructors</h1>
+
+            <div class="edu-item">
+                <h2>Dr. Sarah Lee</h2>
+                <p>Expert in AI and Machine Learning</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Mr. Robert Kim</h2>
+                <p>Web Development and Frontend Specialist</p>
+            </div>
+
+            <div class="edu-item">
+                <h2>Ms. Emily Chen</h2>
+                <p>Digital Marketing Strategist</p>
+            </div>
+        </div>
+
+    </div>
+</div> 
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+
+
+function showSection(id){
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* Line Chart */
+new Chart(document.getElementById("lineChart"), {
+    type: "line",
+    data: {
+        labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul"],
+        datasets: [{
+            label: "Enrollments",
+            data: [120,200,180,250,300,280,350],
+            borderColor: "#28a745",
+            backgroundColor: "rgba(40,167,69,0.2)",
+            borderWidth: 3
+        }]
+    }
+});
+
+/* Bar Chart */
+new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: ["Web Dev","Data Science","Marketing","Design","Business"],
+        datasets: [{
+            label: "Students",
+            data: [150,200,120,90,180],
+            backgroundColor: ["#007bff","#28a745","#ffc107","#dc3545","#17a2b8"]
+        }]
+    }
+});
+
+/* Pie Chart */
+new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+        labels: ["Desktop","Mobile","Tablet"],
+        datasets: [{
+            data: [60,35,5],
+            backgroundColor: ["#007bff","#28a745","#ffc107"]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

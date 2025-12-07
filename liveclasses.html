@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Classes</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html, body{width:100%;overflow-x:hidden;background:#f7f9fc;}
+
+/* ---------- HERO SPLIT BACKGROUND ---------- */
+.hero{
+    display:flex;
+    flex-wrap:wrap;
+    min-height:300px;
+}
+.hero-left{
+    flex:1;
+    background:url('live1.webp') center/cover no-repeat;
+}
+.hero-right{
+    flex:1;
+    background:#ff8400;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    padding:30px;
+}
+.hero-right h1{font-size:32px;margin-bottom:15px;}
+.hero-right p{font-size:16px;text-align:center;}
+
+/* ---------- SEARCH BAR ---------- */
+.search-section{
+    padding:30px 20px;
+    text-align:center;
+}
+.search-section input{
+    width:70%;
+    max-width:400px;
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+.search-section button{
+    padding:10px 20px;
+    margin-left:8px;
+    border:none;
+    border-radius:8px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+}
+#searchAlert{color:red;margin-top:8px;font-size:14px;}
+
+/* ---------- FEATURED LIVE CLASSES (STACKED CARDS) ---------- */
+.featured-section{
+    padding:50px 20px;
+    position:relative;
+}
+.featured-section h2{
+    text-align:center;
+    font-size:26px;
+    margin-bottom:40px;
+}
+.featured-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:auto;
+}
+.featured-card { display: flex; flex-direction: column; justify-content: space-between; }
+
+.featured-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    position:relative;
+    top:0;
+    transition:0.3s;
+}
+
+
+.featured-card:hover{top:-10px;}
+.featured-card img{
+    width:100%;
+    height: 200px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.featured-card h3{font-size:18px;margin-bottom:8px;}
+.featured-card p{font-size:14px;color:#555;}
+.featured-card button{
+    margin-top:10px;
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* ---------- INSTRUCTORS HORIZONTAL SCROLL ---------- */
+.instructor-section{
+    padding:50px 20px;
+    background:#eef5ff;
+}
+.instructor-section h2{
+    text-align:center;
+    font-size:26px;
+    margin-bottom:30px;
+}
+.instructor-wrapper{
+    display:flex;
+    overflow-x:auto;
+    gap:20px;
+    /* padding-bottom:10px; */
+     /* justify-content: center; */
+     padding: 0 15px 10px 15px;
+}
+
+
+.instructor-box{
+    min-width:200px;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+.instructor-box img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin-bottom:10px;
+}
+.instructor-box h3{font-size:16px;margin-bottom:5px;}
+.instructor-box p{font-size:14px;color:#555;}
+.instructor-box button{
+    margin-top:8px;
+    padding:6px 14px;
+    border:none;
+    border-radius:6px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:13px;
+}
+
+/* ---------- UPCOMING SCHEDULE (TIMELINE STYLE) ---------- */
+.schedule-section{
+    padding:50px 20px;
+}
+.schedule-section h2{text-align:center;font-size:26px;margin-bottom:40px;}
+.schedule-timeline{
+    max-width:800px;
+    margin:auto;
+    position:relative;
+}
+.schedule-item{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.07);
+    margin-bottom:25px;
+    position:relative;
+}
+.schedule-item::before{
+    content:'';
+    position:absolute;
+    left:-10px;
+    top:20px;
+    width:6px;
+    height:6px;
+    background:#ff8400;
+    border-radius:50%;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonial-section{
+    padding:50px 20px;
+    background:#f7f9fc;
+    text-align:center;
+}
+.testimonial-section h2{font-size:26px;margin-bottom:30px;}
+.testimonial-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.07);
+    margin-bottom:20px;
+}
+
+/* ---------- CTA ---------- */
+.cta{
+    padding:50px 20px;
+    text-align:center;
+    background:#fff1cc;
+}
+.cta h2{font-size:26px;margin-bottom:20px;}
+.cta button{
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    background:#ff8400;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* ---------- BUTTON HOVER ---------- */
+button:hover{background:#e16f00;}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+    .hero{flex-direction:column;}
+    .hero-left,.hero-right{flex:1;width:100%;}
+}
+@media(max-width:600px){
+    .featured-card img{height:150px;object-fit:cover;}
+    .instructor-wrapper{gap:15px;}
+}
+@media(min-width: 769px){
+    .instructor-wrapper {
+        justify-content: center;
+        padding: 0; /* remove side padding on desktop */
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO SPLIT -->
+<section class="hero">
+    <div class="hero-left"></div>
+    <div class="hero-right">
+        <h1>Live Classes</h1>
+        <p>Join interactive live sessions with expert instructors anytime, anywhere.</p>
+    </div>
+</section>
+
+<!-- SEARCH BAR -->
+<!-- <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search Live Classes...">
+    <button onclick="validateSearch()">Search</button>
+    <div id="searchAlert"></div>
+</section> -->
+
+<!-- FEATURED LIVE CLASSES -->
+<section class="featured-section">
+    <h2>Featured Live Classes</h2>
+    <div class="featured-grid">
+        <div class="featured-card">
+            <img src="exam4.webp" alt="">
+            <h3>Mathematics Live</h3>
+            <p>Interactive sessions with expert Math instructors.</p>
+            <button onclick="location.href='404.html'">Join</button>
+        </div>
+        <div class="featured-card">
+            <img src="live5.webp" alt="">
+            <h3>Science Live</h3>
+            <p>Hands-on experiments and Q&A sessions.</p>
+            <button onclick="location.href='404.html'">Join</button>
+        </div>
+        <div class="featured-card">
+            <img src="exam5.webp" alt="">
+            <h3>English Live</h3>
+            <p>Grammar and conversation practice in real-time.</p>
+            <button onclick="location.href='404.html'">Join</button>
+        </div>
+    </div>
+</section>
+
+<!-- TOP INSTRUCTORS HORIZONTAL SCROLL -->
+<section class="instructor-section">
+    <h2>Top Instructors</h2>
+    <div class="instructor-wrapper">
+        <div class="instructor-box">
+            <img src="live2.webp" alt="">
+            <h3>Mr. Rahul</h3>
+            <p>Math Expert</p>
+            <button onclick="location.href='404.html'">View Profile</button>
+        </div>
+        <div class="instructor-box">
+            <img src="live3.webp" alt="">
+            <h3>Ms. Priya</h3>
+            <p>Science Expert</p>
+            <button onclick="location.href='404.html'">View Profile</button>
+        </div>
+        <div class="instructor-box">
+            <img src="live4.webp" alt="">
+            <h3>Mr. Arjun</h3>
+            <p>English Expert</p>
+            <button onclick="location.href='404.html'">View Profile</button>
+        </div>
+    </div>
+</section>
+
+<!-- UPCOMING SCHEDULE -->
+<section class="schedule-section">
+    <h2>Upcoming Schedule</h2>
+    <div class="schedule-timeline">
+        <div class="schedule-item">
+            <h3>Math Live Class</h3>
+            <p>Starts: Dec 5, 10:00 AM</p>
+        </div>
+        <div class="schedule-item">
+            <h3>Science Live Class</h3>
+            <p>Starts: Dec 6, 2:00 PM</p>
+        </div>
+        <div class="schedule-item">
+            <h3>English Live Class</h3>
+            <p>Starts: Dec 7, 11:00 AM</p>
+        </div>
+    </div>
+</section>
+
+<!-- STUDENT TESTIMONIALS -->
+<section class="testimonial-section">
+    <h2>Student Testimonials</h2>
+    <div class="testimonial-box">
+        "Live sessions are engaging and interactive. I learned a lot!" – Ananya
+    </div>
+    <div class="testimonial-box">
+        "I can attend classes anytime and ask questions live. Amazing!" – Rohan
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Join Live Classes Today</h2>
+    <button onclick="location.href='404.html'">Get Started</button>
+</section>
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+
+  
+// function validateSearch(){
+//     const input=document.getElementById('searchInput').value.trim();
+//     const alertDiv=document.getElementById('searchAlert');
+//     if(input===''){ alertDiv.textContent="Please enter a search term"; }
+//     else{ alertDiv.textContent=""; location.href='404.html'; }
+// }
+// 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Instructors - Online Education</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+    background:#f7f7f7;
+    overflow-x:hidden;
+}
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+img{
+    max-width:100%;
+    border-radius:12px;
+}
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#222;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    margin-top:15px;
+}
+
+/* 1. HERO SECTION */
+.hero{
+    background:#a2dbea;
+    color:white;
+    padding:100px 20px;
+}
+.hero h1{
+    font-size:36px;
+}
+
+/* 2. 4 INSTRUCTOR GRID */
+.grid-4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+.instructor-card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+.instructor-card img{
+    height:150px;
+    width:150px;
+    object-fit:cover;
+    border-radius:50%;
+}
+.instructor-card h3{
+    margin-top:12px;
+    font-size:20px;
+}
+.instructor-card p{
+    font-size:15px;
+    color:#666;
+    margin-top:6px;
+}
+
+/* 3. IMAGE + TEXT SECTION */
+.flex{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.flex img{
+    width:50%;
+}
+
+/* 4. FULL WIDTH BG SECTION */
+.bg-section{
+    background:url('exam0.webp') center/cover no-repeat;
+    padding:100px 20px;
+    color:white;
+    border-radius:12px;
+}
+
+/* 5. FEATURE BOXES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.feature-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    font-size:17px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 6. CTA */
+.cta{
+    background:#98cad3;
+    color:white;
+    padding:70px 20px;
+    border-radius:12px;
+}
+
+/* MOBILE FIXES */
+@media(max-width:900px){
+    .grid-4{
+        grid-template-columns:1fr 1fr;
+    }
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+    .flex{
+        flex-direction:column;
+    }
+    .flex img{
+        width:100%;
+    }
+}
+@media(max-width:600px){
+    .grid-4{
+        grid-template-columns:1fr;
+    }
+    .features{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- 1. HERO -->
+<section class="hero">
+    <h1>Top Instructors</h1>
+    <p>Learn from the industry’s most experienced educators</p>
+</section>
+
+<!-- 2. INSTRUCTOR GRID -->
+<section>
+    <h2>Meet Our Expert Mentors</h2>
+    <p>Each mentor brings years of real-world experience</p>
+
+    <div class="grid-4">
+
+        <div class="instructor-card">
+            <img src="live2.webp">
+            <h3>Rahul Sharma</h3>
+            <p>Senior Web Development Mentor</p>
+        </div>
+
+        <div class="instructor-card">
+            <img src="live3.webp">
+            <h3>Neha Verma</h3>
+            <p>Data Science & AI Specialist</p>
+        </div>
+
+        <div class="instructor-card">
+            <img src="live4.webp">
+            <h3>Arjun Patel</h3>
+            <p>Cybersecurity Expert</p>
+        </div>
+
+        <div class="instructor-card">
+            <img src="live2.webp">
+            <h3>Aisha Khan</h3>
+            <p>Marketing & Branding Instructor</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- 3. IMAGE + TEXT SECTION -->
+<section>
+    <div class="flex">
+        <img src="live1.webp">
+        <div>
+            <h2>Why Choose Our Instructors?</h2>
+            <p>Our mentors are carefully selected based on experience, knowledge, and teaching skill. They make learning simple and enjoyable.</p>
+            <a class="btn" href="4042.html">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- 4. FULL WIDTH BACKGROUND SECTION -->
+<section class="bg-section">
+    <h2>95% Student Satisfaction</h2>
+    <p>Our instructors’ teaching quality makes students return for more.</p>
+</section>
+
+<!-- 5. FEATURES SECTION -->
+<section>
+    <h2>What Makes Them the Best?</h2>
+
+    <div class="features">
+        <div class="feature-box">✔ Real Industry Experience</div>
+        <div class="feature-box">✔ Expert-Level Knowledge</div>
+        <div class="feature-box">✔ Practical Teaching Methods</div>
+    </div>
+</section>
+
+<!-- 6. CTA -->
+<section class="cta">
+    <h2>Want to Learn From the Best?</h2>
+    <p>Start your learning journey today</p>
+    <a class="btn" href="4042.html">Join Now</a>
+</section>
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '4042.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

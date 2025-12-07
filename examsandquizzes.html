@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exams & Quizzes</title>
+
+<style>
+*{
+    margin:0; padding:0; box-sizing:border-box; 
+    font-family:Arial, sans-serif;
+}
+body{
+    width:100%;
+    overflow-x:hidden;
+    background:#fdfdfd;
+}
+
+* { max-width: 100%; }
+
+html, body {
+    overflow-x: hidden;
+}
+
+.cat-box {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* ---------- HERO SECTION ---------- */
+.hero{
+    padding:70px 20px;
+    text-align:center;
+    background:url('exam0.webp') center/cover no-repeat;
+    color:white;
+}
+.hero h1{
+    font-size:34px;
+    font-weight:700;
+    text-shadow:0px 3px 6px rgba(0,0,0,0.4);
+}
+.hero p{
+    font-size:16px;
+    max-width:550px;
+    margin:12px auto;
+}
+
+/* ---------- CATEGORY GRID SECTION ---------- */
+.category-section{
+    padding:50px 20px;
+    text-align:center;
+}
+.section-title{
+    font-size:26px;
+    margin-bottom:25px;
+    font-weight:600;
+}
+.cat-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    max-width:1000px;
+    margin:auto;
+}
+.cat-box{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    /* background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60'); */
+    background-size:cover;
+    background-position:center;
+    color:white;
+    height:160px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:600;
+    text-shadow:0 2px 5px rgba(0,0,0,0.4);
+}
+.cat-grid .cat-box:nth-child(1) {
+    background-image: url('exam2.webp');
+}
+
+.cat-grid .cat-box:nth-child(2) {
+    background-image: url('exam3.webp');
+}
+
+.cat-grid .cat-box:nth-child(3) {
+    background-image: url('exam4.webp');
+}
+
+.cat-grid .cat-box:nth-child(4) {
+    background-image: url('exam5.webp');
+}
+
+.cat-grid .cat-box:nth-child(5) {
+    background-image: url('exam6.webp');
+}
+
+.cat-grid .cat-box:nth-child(6) {
+    background-image: url('exam7.webp');
+}
+
+.cat-grid .cat-box:nth-child(7) {
+    background-image: url('exam8.webp');
+}
+
+.cat-grid .cat-box:nth-child(8) {
+    background-image: url('exam9.webp');
+}
+
+.cat-grid .cat-box:nth-child(9) {
+    background-image: url('exam10.webp');
+}
+
+.cat-box button{
+    margin-top:10px;
+    padding:8px 18px;
+    border:none;
+    border-radius:6px;
+    background:#ff8300;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
+}
+.cat-box button:hover{
+    background:#d46b00;
+}
+
+.cat-box { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* ---------- FEATURED QUIZZES ---------- */
+.featured{
+    padding:40px 20px;
+    background:#eef5ff;
+}
+.quiz-list{
+    max-width:850px;
+    margin:auto;
+}
+.quiz-item{
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.07);
+}
+.quiz-item h3{
+    font-size:20px;
+}
+.quiz-item p{
+    font-size:14px;
+    color:#444;
+}
+
+/* ---------- NEW SECTION: UPCOMING EXAMS ---------- */
+.upcoming{
+    padding:40px 20px;
+    background:white;
+}
+.upcoming-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    max-width:1000px;
+    margin:auto;
+}
+.exam-box{
+    background:#f8f8f8;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+.exam-box h4{
+    font-size:18px;
+}
+.exam-box p{
+    margin-top:8px;
+    font-size:14px;
+    color:#555;
+}
+
+/* ---------- STATS SECTION ---------- */
+.stats{
+    padding:45px 20px;
+    background:url('exam1.webp') center/cover no-repeat;
+    color:white;
+    text-align:center;
+}
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    max-width:900px;
+    margin:auto;
+}
+.stat-box{
+    background:rgba(0,0,0,0.55);
+    padding:25px;
+    border-radius:10px;
+}
+.stat-box h2{
+    font-size:32px;
+    font-weight:700;
+}
+.stat-box p{
+    font-size:14px;
+}
+
+/* ---------- NEW SECTION: STUDENT REVIEWS ---------- */
+.reviews{
+    padding:40px 20px;
+    background:#f9f9f9;
+    text-align:center;
+}
+.review-item{
+    max-width:700px;
+    background:white;
+    padding:20px;
+    margin:15px auto;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    font-size:15px;
+    color:#333;
+}
+
+/* ---------- CTA ---------- */
+.cta{
+    padding:50px 20px;
+    text-align:center;
+    background:#fff1cc;
+}
+.cta h2{
+    font-size:26px;
+    margin-bottom:12px;
+}
+.cta button{
+    background:#ff8400;
+    border:none;
+    color:white;
+    padding:12px 30px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.cta button:hover{
+    background:#e16f00;
+}
+
+/* MOBILE VIEW FIX */
+@media (max-width:800px){
+    .cat-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+@media (max-width:600px){
+    .hero h1{ font-size:26px; }
+    .cat-box{ height:150px; font-size:18px; }
+    .stat-box h2{ font-size:26px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Exams & Quizzes</h1>
+    <p>Improve your knowledge with timed tests, category-based quizzes, and instant results.</p>
+</section>
+
+
+<!-- CATEGORY GRID (Section 1) -->
+<section class="category-section">
+    <h2 class="section-title">Choose Your Exam Category</h2>
+
+    <div class="cat-grid">
+        <div class="cat-box">
+            General Knowledge
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Science
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Mathematics
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            English
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Coding Tests
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Logical Reasoning
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Aptitude
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            Computer Basics
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+
+        <div class="cat-box">
+            History
+            <button onclick="location.href='404.html'">Start</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- FEATURED QUIZZES (Section 2) -->
+<section class="featured">
+    <h2 class="section-title">Featured Quizzes</h2>
+    <div class="quiz-list">
+        <div class="quiz-item">
+            <h3>Daily GK Quick Test</h3>
+            <p>10 Questions • 10 Minutes</p>
+        </div>
+
+        <div class="quiz-item">
+            <h3>Basic Maths Challenge</h3>
+            <p>15 Questions • 12 Minutes</p>
+        </div>
+
+        <div class="quiz-item">
+            <h3>English Grammar Test</h3>
+            <p>20 Questions • 15 Minutes</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- UPCOMING EXAMS (Section 3 New) -->
+<section class="upcoming">
+    <h2 class="section-title">Upcoming Exams</h2>
+
+    <div class="upcoming-grid">
+        <div class="exam-box">
+            <h4>Monthly Mega Quiz</h4>
+            <p>Starts in: 5 Days</p>
+        </div>
+
+        <div class="exam-box">
+            <h4>Logical Reasoning Test</h4>
+            <p>Starts in: 3 Days</p>
+        </div>
+
+        <div class="exam-box">
+            <h4>Science Competition</h4>
+            <p>Starts in: 7 Days</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- STATS (Section 4) -->
+<section class="stats">
+    <h2 class="section-title" style="color:white;">Platform Statistics</h2>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h2>200+</h2>
+            <p>Active Quizzes</p>
+        </div>
+        <div class="stat-box">
+            <h2>80k+</h2>
+            <p>Registered Students</p>
+        </div>
+        <div class="stat-box">
+            <h2>99%</h2>
+            <p>Positive Feedback</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- STUDENT REVIEWS (Section 5 New) -->
+<section class="reviews">
+    <h2 class="section-title">Student Reviews</h2>
+
+    <div class="review-item">
+        “This platform helped me improve my GK and Maths quickly!” – Rahul
+    </div>
+    <div class="review-item">
+        “Quizzes are easy to use and well-structured. Loved it!” – Priya
+    </div>
+    <div class="review-item">
+        “The timed exam format feels very real and helpful.” – Arjun
+    </div>
+</section>
+
+
+<!-- CTA (Section 6) -->
+<section class="cta">
+    <h2>Ready to Begin Your Exam Journey?</h2>
+    <button onclick="location.href='404.html'">Start Now</button>
+</section>
+
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

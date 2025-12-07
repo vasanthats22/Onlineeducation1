@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home2 - New Layout</title>
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html, body{
+    width:100%;
+    overflow-x:hidden;
+    font-family:Arial, sans-serif;
+    background:#f9f9f9;
+    color:#222;
+}
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#007bff;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* HERO */
+.hero{
+    background:url('edulearn3.webp') center/cover no-repeat;
+    background-size:cover;
+    color:white;
+    padding:100px 20px;
+    text-align:center;
+}
+.hero h1{
+    font-size:38px;
+    margin-bottom:15px;
+}
+.hero p{
+    max-width:700px;
+    margin:0 auto 20px auto;
+    font-size:18px;
+}
+
+/* 2-COLUMN SECTION */
+.two-column{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.two-column img{
+    width:100%;
+    max-width:450px;
+    border-radius:12px;
+    flex-shrink:0;
+}
+.two-column div{
+    flex:1;
+    min-width:260px;
+}
+
+/* 3-COLUMN COURSES GRID */
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+.course-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+.course-card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.course-card h3{
+    margin:15px 0 10px;
+}
+.course-card p{
+    font-size:14px;
+    color:#555;
+}
+
+/* FULL-WIDTH BANNER */
+.banner{
+    background:url('edulearn1.webp') center/cover no-repeat;
+    background-size:cover;
+    color:white;
+    padding:80px 20px;
+    text-align:center;
+    border-radius:12px;
+}
+
+/* 2-COLUMN TESTIMONIALS */
+.testimonial-section{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+.testimonial-card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    flex:1;
+    min-width:260px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+.testimonial-card img{
+    width:100%;
+    max-width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+.testimonial-card p{
+    font-size:14px;
+    color:#555;
+}
+
+/* CTA */
+.cta{
+    background:#e1b6b6;
+    color:white;
+    padding:70px 20px;
+    border-radius:12px;
+    text-align:center;
+}
+
+/* MOBILE FIXES */
+@media(max-width:900px){
+    .two-column, .testimonial-section{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+@media(max-width:600px){
+    .hero h1{font-size:28px;}
+    .cta{padding:50px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome to EduLearn</h1>
+    <p>Discover top-quality courses, learn from expert instructors, and advance your skills.</p>
+    <a href="4042.html" class="btn">Get Started</a>
+</section>
+
+<!-- ABOUT / 2-COLUMN -->
+<section class="two-column">
+    <img src="edulearn2.webp" alt="">
+    <div>
+        <h2>About EduLearn</h2>
+        <p>EduLearn provides online courses across technology, business, design, and more. Learn at your own pace with expert instructors and practical projects.</p>
+        <a href="4042.html" class="btn">Learn More</a>
+    </div>
+</section>
+
+<!-- POPULAR COURSES -->
+<section>
+    <h2>Popular Courses</h2>
+    <div class="grid-3">
+        <div class="course-card">
+            <img src="exam6.webp" alt="">
+            <h3>Web Development</h3>
+            <p>Build websites from scratch with HTML, CSS, and JavaScript.</p>
+            <a href="4042.html" class="btn">View Course</a>
+        </div>
+        <div class="course-card">
+            <img src="online3.webp" alt="">
+            <h3>Data Science</h3>
+            <p>Analyze data and build predictive models using Python.</p>
+            <a href="4042.html" class="btn">View Course</a>
+        </div>
+        <div class="course-card">
+            <img src="exam2.webp" alt="">
+            <h3>Digital Marketing</h3>
+            <p>Learn SEO, social media marketing, and ad campaigns.</p>
+            <a href="4042.html" class="btn">View Course</a>
+        </div>
+    </div>
+</section>
+
+<!-- FULL-WIDTH BANNER -->
+<section class="banner">
+    <h2>Join Thousands of Learners Worldwide</h2>
+    <p>Transform your career and learn the skills that matter most in today’s job market.</p>
+</section>
+
+<!-- TESTIMONIALS / HAPPY STUDENTS -->
+<section class="testimonial-section">
+    <div class="testimonial-card">
+        <img src="exam8.webp" alt="">
+        <p>"The courses are well-structured and instructors are amazing. Highly recommend EduLearn!"</p>
+    </div>
+    <div class="testimonial-card">
+        <img src="exam7.webp" alt="">
+        <p>"Hands-on projects made learning very practical. I gained skills I can use immediately."</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Start Learning Today</h2>
+    <p>Explore hundreds of courses and improve your skills with top instructors.</p>
+    <a href="4042.html" class="btn">Enroll Now</a>
+</section>
+
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '4042.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

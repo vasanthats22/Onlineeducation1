@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Reviews - Online Education</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+    background:#f6f6f6;
+    overflow-x:hidden;
+}
+
+/* reusable */
+section{
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#222;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    margin-top:15px;
+}
+img{
+    max-width:100%;
+    border-radius:10px;
+}
+
+/* 1 HERO */
+.hero{
+    background:url('study.webp')center/cover no-repeat ;
+    color:white;
+    padding:100px 20px;
+    
+}
+.hero h1{
+    font-size:34px;
+    font-weight:bold;
+}
+.hero p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* 2 GRID REVIEW SECTION */
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
+.card h3{
+    margin-top:10px;
+    font-size:20px;
+}
+.card p{
+    margin-top:8px;
+    color:#555;
+    font-size:15px;
+}
+
+/* 3 IMAGE + TEXT SECTION */
+.flex{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.flex img{
+    width:50%;
+}
+
+/* 4 FULL BG SECTION */
+.bg-full{
+    background:url('exam0.webp') center/cover no-repeat;
+    color:white;
+    padding:100px 20px;
+}
+
+/* 6 FEATURES BOXES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+.feature-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 7 COUNTERS */
+.counter-box{
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.counter-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+/* 8 FAQ */
+.faq-box{
+    background:white;
+    margin:15px auto;
+    padding:20px;
+    max-width:700px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+    text-align:left;
+}
+
+/* 9 CTA */
+.cta{
+    background:url(exam3.webp)center/cover no-repeat;
+    color:white;
+    padding:60px 20px;
+    border-radius:12px;
+    b
+}
+
+/* MOBILE FIXES */
+@media(max-width:900px){
+    .grid-3{
+        grid-template-columns:1fr;
+    }
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+    .counter-grid{
+        grid-template-columns:1fr 1fr;
+    }
+    .flex{
+        flex-direction:column;
+    }
+    .flex img{
+        width:100%;
+    }
+}
+@media(max-width:600px){
+    .features{
+        grid-template-columns:1fr;
+    }
+    .counter-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- 1. HERO -->
+<section class="hero">
+    <h1>What Students Say About Us</h1>
+    <p>Your success story starts with a single lesson.</p>
+    <a class="btn" href="4042.html">Get Started</a>
+</section>
+
+
+<!-- 2. STUDENT REVIEW CARDS -->
+<section>
+    <h2>Top Student Feedback</h2>
+    <p>Real reviews from real learners</p>
+
+    <div class="grid-3">
+
+        <div class="card">
+            <h3>Aarav N</h3>
+            <p>“The platform helped me improve my coding skills. The lessons were simple and clear.”</p>
+            <a class="btn" href="4042.html">Read More</a>
+        </div>
+
+        <div class="card">
+            <h3>Kavya R</h3>
+            <p>“24/7 access allowed me to learn whenever I wanted. Amazing experience!”</p>
+            <a class="btn" href="4042.html">Read More</a>
+        </div>
+
+        <div class="card">
+            <h3>Manish S</h3>
+            <p>“Assignments and quizzes were very helpful. I understood every topic deeply.”</p>
+            <a class="btn" href="4042.html">Read More</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 3. IMAGE + TEXT -->
+<section>
+    <div class="flex">
+        <img src="exam2.webp">
+        <div>
+            <h2>Learning Made Easy</h2>
+            <p>Our modern teaching approach ensures every student understands concepts without stress.</p>
+            <a class="btn" href="4042.html">View Courses</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- 4. FULL BG -->
+<section class="bg-full">
+    <h2>Loved By 75,000+ Students</h2>
+    <p>We are trusted worldwide for quality education</p>
+</section>
+
+
+<!-- 5. SECOND IMAGE SECTION -->
+<section>
+    <h2>Happy Learners</h2>
+    <p>Students achieving their goals with confidence</p>
+    <img src="student1.webp">
+</section>
+
+
+<!-- 6. FEATURES -->
+<section>
+    <h2>Why Students Choose Us</h2>
+    <p>Smart learning with powerful tools</p>
+
+    <div class="features">
+        <div class="feature-box">✔ Live classes</div>
+        <div class="feature-box">✔ Downloadable notes</div>
+        <div class="feature-box">✔ Expert mentors</div>
+        <div class="feature-box">✔ Lifetime access</div>
+    </div>
+</section>
+
+
+<!-- 7. COUNTERS -->
+<section>
+    <h2>Our Achievements</h2>
+    <div class="counter-grid">
+        <div class="counter-box"><h3>450+</h3><p>Courses</p></div>
+        <div class="counter-box"><h3>75k+</h3><p>Students</p></div>
+        <div class="counter-box"><h3>4.8★</h3><p>Average Rating</p></div>
+        <div class="counter-box"><h3>320+</h3><p>Mentors</p></div>
+    </div>
+</section>
+
+
+<!-- 8. FAQ -->
+<section>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-box">
+        <strong>How do I join a course?</strong>
+        <p>Simply click the enroll button and start learning.</p>
+    </div>
+
+    <div class="faq-box">
+        <strong>Can I access lessons anytime?</strong>
+        <p>Yes, our platform is available 24/7.</p>
+    </div>
+
+    <div class="faq-box">
+        <strong>Are certificates provided?</strong>
+        <p>Yes, you receive a certificate after completion.</p>
+    </div>
+
+</section>
+
+
+<!-- 9. CTA -->
+<section class="cta">
+    <h2>Begin Your Learning Journey Today</h2>
+    <p>Upgrade your skills with expert-designed courses</p>
+    <a class="btn" href="4042.html">Start Now</a>
+</section>
+<br>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer2.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '4042.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+</body>
+</html>

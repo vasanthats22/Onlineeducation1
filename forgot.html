@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Password - Online Education</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+html, body { height:100%; background:#e6f2f7; color:#333; }
+
+body { display:flex; flex-direction:column; min-height:100vh; }
+
+.main-content { flex:1; display:flex; justify-content:center; align-items:center; padding:20px; }
+
+.wrapper { display:flex; max-width:900px; width:100%; background:white; border-radius:15px; overflow:hidden; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+
+/* LEFT IMAGE */
+.left { flex:1; background:url('live1.webp') center/cover no-repeat; display:flex; justify-content:center; align-items:center; color:white; }
+.left h2 { background:rgba(0,0,0,0.45); padding:15px 25px; border-radius:10px; text-align:center; font-size:28px; }
+
+/* RIGHT FORM */
+.right { flex:1; padding:40px; display:flex; flex-direction:column; justify-content:center; }
+.right h1 { color:#0c9fad; text-align:center; margin-bottom:30px; font-size:28px; }
+
+form { display:flex; flex-direction:column; gap:15px; position:relative; }
+input { width:100%; padding:12px 15px; border-radius:5px; border:1px solid #ccc; font-size:14px; }
+button { padding:12px 20px; border:none; background:#ff7a00; color:white; border-radius:5px; cursor:pointer; font-size:16px; transition:0.3s; }
+button:hover { background:#e16a00; }
+
+.error { color:red; font-size:13px; margin-top:-10px; margin-bottom:10px; }
+
+.extra-links { display:flex; justify-content:center; margin-top:10px; font-size:14px; }
+.extra-links a { color:#0c9fad; text-decoration:none; cursor:pointer; transition:0.3s; margin:0 10px; }
+.extra-links a:hover { text-decoration:underline; }
+
+@media(max-width:768px){
+    .wrapper { flex-direction:column; }
+    .left, .right { flex:unset; width:100%; }
+    .left { height:200px; }
+}
+</style>
+</head>
+<body>
+
+    <!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<div class="main-content">
+<div class="wrapper">
+    <!-- LEFT IMAGE -->
+    <div class="left">
+        <h2>Reset Your Password</h2>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="right">
+        <h1>Forgot Password</h1>
+        <form id="forgotForm" novalidate>
+            <!-- Email or Username -->
+            <input type="text" id="username" placeholder="Username or Email" required>
+            <div class="error" id="usernameError"></div>
+
+            <!-- New Password -->
+            <input type="password" id="newPassword" placeholder="New Password" required>
+            <div class="error" id="passwordError"></div>
+
+            <!-- Confirm Password -->
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <div class="error" id="confirmError"></div>
+
+            <button type="submit" id="submitBtn" disabled>Reset Password</button>
+
+            <div class="extra-links">
+                <a id="backLogin">Back to Login</a>
+                <a id="signUp">Sign Up</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+const usernameInput = document.getElementById('username');
+const newPasswordInput = document.getElementById('newPassword');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+const submitBtn = document.getElementById('submitBtn');
+
+const usernameError = document.getElementById('usernameError');
+const passwordError = document.getElementById('passwordError');
+const confirmError = document.getElementById('confirmError');
+
+// Username validation
+usernameInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^A-Za-z\s@.]/g, '');
+    usernameError.textContent = this.value.trim() === '' ? 'Username or Email is required' : '';
+    checkFormValidity();
+});
+
+// Password validation
+newPasswordInput.addEventListener('input', function() {
+    const pwd = this.value;
+    const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    passwordError.textContent = pwd === '' ? 'Password is required' : (!pwdRegex.test(pwd) ? 'Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char' : '');
+    checkFormValidity();
+});
+
+// Confirm password validation
+confirmPasswordInput.addEventListener('input', function() {
+    confirmError.textContent = this.value !== newPasswordInput.value ? 'Passwords do not match' : '';
+    checkFormValidity();
+});
+
+// Enable submit if all valid
+function checkFormValidity(){
+    const usernameValid = usernameInput.value.trim() !== '' && usernameError.textContent === '';
+    const passwordValid = newPasswordInput.value.trim() !== '' && passwordError.textContent === '';
+    const confirmValid = confirmPasswordInput.value.trim() !== '' && confirmError.textContent === '';
+    submitBtn.disabled = !(usernameValid && passwordValid && confirmValid);
+}
+
+// Submit form
+document.getElementById('forgotForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!submitBtn.disabled){
+        window.location.href = '404.html';
+    }
+});
+
+// Extra links
+document.getElementById('backLogin').addEventListener('click', function(){ window.location.href='login.html'; });
+document.getElementById('signUp').addEventListener('click', function(){ window.location.href='signup.html'; });
+</script>
+
+</body>
+</html>

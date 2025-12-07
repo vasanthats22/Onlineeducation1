@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Scope all styles under .mid-content to avoid affecting footer/header */
+.mid-content * {
+    box-sizing: border-box;
+}
+
+.mid-content {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* COMMON */
+.mid-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+}
+.mid-content p {
+    color: #010914;
+}
+.mid-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+.mid-content .feature button {
+    display: block;
+    margin: 15px auto 0 auto;
+}
+
+.mid-content button:hover {
+    background-color: #0056b3;
+}
+.mid-content .container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HERO */
+.mid-content .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 10px;
+    background: url('online1.webp') no-repeat center/cover;
+    color: #0cb4ec;
+    border-radius: 10px;
+}
+.mid-content .hero-content {
+    max-width: 600px;
+}
+
+/* FEATURES */
+.mid-content .features {
+    padding: 50px 10px;
+    background-color: #fff;
+}
+
+.mid-content .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.mid-content .feature {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.mid-content .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mid-content .feature:hover {
+    transform: translateY(-5px);
+}
+
+/* COURSES */
+.mid-content .courses {
+    padding: 50px 10px;
+}
+.mid-content .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.mid-content .course {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.mid-content .course:hover {
+    transform: translateY(-5px);
+}
+.mid-content .course img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.mid-content .course-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.mid-content .course-content button {
+    display: block;
+    margin-top: auto; /* pushes button to the bottom */
+}
+
+/* TESTIMONIALS */
+.mid-content .testimonials {
+    padding: 50px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+}
+.mid-content .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.mid-content .testimonial {
+    background-color: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* BLOG */
+.mid-content .blog {
+    padding: 50px 10px;
+    background-color: #fff;
+}
+.mid-content .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.mid-content .blog-card {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+}
+.mid-content .blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.mid-content .blog-content {
+    padding: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+}
+.mid-content .blog-content button
+{
+    display: block;
+    margin-top: auto; /* pushes button to bottom */
+    text-decoration: none; /* removes underline */
+}
+
+/* STATISTICS */
+.mid-content .statistics {
+    padding: 50px 10px;
+    background-color: #fff;
+}
+.mid-content .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+.mid-content .stat {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+}
+.mid-content .stat h3 {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-bottom: 5px;
+}
+
+/* FAQ */
+.mid-content .faq {
+    padding: 50px 10px;
+    background-color: #f9f9f9;
+}
+.mid-content .faq-item {
+    margin-bottom: 20px;
+}
+.mid-content .faq-item h4 {
+    margin-bottom: 5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .mid-content .hero-content h1 {
+        font-size: 1.6rem;
+    }
+}
+
+</style>
+<body>
+
+    <!-- HEADER -->
+<div id="header-placeholder"></div>
+
+
+<div class="mid-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Learn Anytime, Anywhere</h1>
+            <p>Join thousands of learners and expand your skills online.</p>
+            <a href="404.html"><button>Get Started</button></a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features container">
+        <h2>Our Features</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry experts with years of experience.</p>
+                <a href="404.html"><button>Learn More</button></a>
+            </div>
+            <div class="feature">
+                <h3>Flexible Learning</h3>
+                <p>Learn at your own pace with lifetime access.</p>
+                <a href="404.html"><button>Learn More</button></a>
+            </div>
+            <div class="feature">
+                <h3>Certification</h3>
+                <p>Receive a certificate after completing each course.</p>
+                <a href="404.html"><button>Learn More</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section class="courses container">
+        <h2>Popular Courses</h2>
+        <div class="course-grid">
+            <div class="course">
+                <img src="online2.webp" alt="Course 1">
+                <div class="course-content">
+                    <h3>Web Development</h3>
+                    <p>Learn HTML, CSS, JavaScript and build real projects.</p>
+                    <a href="404.html"><button>Enroll Now</button></a>
+                </div>
+            </div>
+            <div class="course">
+                <img src="online3.webp" alt="Course 2">
+                <div class="course-content">
+                    <h3>Data Science</h3>
+                    <p>Analyze data and build predictive models using Python.</p>
+                    <a href="404.html"><button>Enroll Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials container">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"The courses are very easy to follow and the instructors are amazing!"</p>
+                <h4>- John Doe</h4>
+            </div>
+            <div class="testimonial">
+                <p>"I learned so much and got my first job in web development!"</p>
+                <h4>- Jane Smith</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="blog container">
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="exam6.webp" alt="Blog 1">
+                <div class="blog-content">
+                    <h3>Top 10 Programming Languages in 2025</h3>
+                    <p>Stay updated with the most in-demand programming languages.</p>
+                    <a href="404.html"><button>Read More</button></a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="exam7.webp" alt="Blog 2">
+                <div class="blog-content">
+                    <h3>How to Build a Portfolio Website</h3>
+                    <p>Showcase your skills to employers and clients effectively.</p>
+                    <a href="404.html"><button>Read More</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="statistics container">
+        <h2>Our Achievements</h2>
+        <div class="stats-grid">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Courses</p>
+            </div>
+            <div class="stat">
+                <h3>10k+</h3>
+                <p>Students</p>
+            </div>
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>How do I enroll in a course?</h4>
+            <p>You can click on the "Enroll Now" button to register for any course.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I get a certificate?</h4>
+            <p>Yes, you will receive a certificate after successfully completing a course.</p>
+        </div>
+        <a href="404.html"><button>More Questions</button></a>
+    </section>
+
+</div>
+
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+    
+</body>
+</html>

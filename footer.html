@@ -1,0 +1,170 @@
+<!-- Modern IT Services Footer -->
+<footer style="background:#0c9fad; color:#fff; padding:50px 5%; font-family: Arial, sans-serif; overflow-x:hidden;">
+  <div class="footer-container">
+
+    <!-- About Section -->
+    <div class="footer-box">
+      <a href="index.html">
+        <img src="Stacklylogo.webp" alt="Stackly Logo" style="height:50px; margin-bottom:15px; transition: transform 0.3s;">
+      </a>
+      <p>Empowering learners with quality, accessible education that inspires growth, builds knowledge, and connects minds worldwide.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h3 class="footer-title">Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="dashboard.html" class="footer-link">Dashboard</a></li>
+        <li><a href="courses.html" class="footer-link">Courses</a></li>
+        <li><a href="liveclasses.html" class="footer-link">Live Classes</a></li>
+        <li><a href="studymaterials.html" class="footer-link">Study Materials</a></li>
+        <li><a href="examsandquizzes.html" class="footer-link">Exams & Quizzes</a></li>
+        <li><a href="login.html" class="footer-link">Login</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-box">
+      <h3 class="footer-title">Contact Us</h3>
+      <p>📍 Bengaluru, Karnataka-560068</p>
+      <p>📞 +91 70107 92745</p>
+      <p>✉ info@stackly.com</p>
+
+      <div class="social-row">
+        <a href="404.html" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="404.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="404.html" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-box">
+      <h3 class="footer-title">Stay Updated</h3>
+      <form id="newsletterForm" style="display:flex; flex-direction:column;">
+        <p>Subscribe to our newsletter for the latest courses, learning tips, expert insights, and daily updates from the world of online education.</p>
+
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" required class="newsletter-input">
+
+        <span id="emailError" class="email-error">Please enter a valid email address</span>
+
+        <button type="button" id="subscribeButton" class="subscribe-btn">Subscribe</button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div style="text-align:center; margin-top:30px; font-size:14px; border-top:1px solid #fff; padding-top:20px;">
+    &copy; 2025 Stackly Online Education. All rights reserved.
+  </div>
+</footer>
+
+<!-- CSS -->
+<style>
+  .footer-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:30px;
+  }
+
+  .footer-box {
+    flex:1;
+    min-width:220px;
+  }
+
+  .footer-title {
+    color:#4c00ffb6;
+    margin-bottom:15px;
+  }
+
+  .footer-links {
+    list-style:none;
+    padding:0;
+    line-height:2;
+  }
+
+  .footer-link {
+    color:#fff;
+    text-decoration:none;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .footer-link:hover {
+    color:#ff7a00;
+    text-decoration: underline;
+    transform: translateX(3px);
+  }
+
+  .social-row {
+    margin-top:15px;
+    display:flex;
+    gap:15px;
+    flex-wrap:nowrap;
+  }
+
+  .social-icon {
+    color:#fff;
+    font-size:18px;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .social-icon:hover {
+    color:#ff0000;
+    transform: scale(1.2);
+  }
+
+  .newsletter-input {
+    padding:10px;
+    width:100%;
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
+    transition:0.3s;
+  }
+
+  .subscribe-btn {
+    text-align:center;
+    display:block;
+    padding:12px;
+    background: linear-gradient(90deg,#00aaff,#00ffaa);
+    color:#fff;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    transition:0.3s;
+  }
+
+  .subscribe-btn:hover {
+    opacity:0.9;
+    transform: scale(1.02);
+  }
+
+  .email-error {
+    color:#ff7a00;
+    font-size:14px;
+    display:none;
+    margin-bottom:5px;
+  }
+
+  @media(max-width:768px){
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap:30px;
+    }
+
+    .social-row {
+      flex-wrap:nowrap;
+      justify-content:flex-start;
+    }
+  }
+</style>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">

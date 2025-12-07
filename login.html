@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Online Education</title>
+
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+    html, body { width:100%; overflow-x:hidden; background:#e6f2f7; color:#333; }
+
+    /* MAIN PAGE WRAPPER FIX — prevents overlap with footer */
+    body { 
+        display:flex; 
+        flex-direction:column; 
+        min-height:100vh; 
+    }
+
+    /* SPACE BELOW TOP HEADER AND ABOVE FOOTER */
+    .page-content {
+        flex:1;
+        padding:40px 20px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .login-wrapper { 
+        display:flex; 
+        max-width:900px; 
+        width:100%; 
+        background:white; 
+        border-radius:15px; 
+        overflow:hidden; 
+        box-shadow:0 0 20px rgba(0,0,0,0.1); 
+    }
+
+    /* LEFT IMAGE */
+    .login-left { 
+        flex:1; 
+        background:url('live1.webp') center/cover no-repeat; 
+        display:flex; 
+        justify-content:center; 
+        align-items:center; 
+        color:white; 
+    }
+    .login-left h2 { 
+        background:rgba(0,0,0,0.45); 
+        padding:15px 25px; 
+        border-radius:10px; 
+        text-align:center; 
+        font-size:28px; 
+    }
+
+    /* RIGHT FORM */
+    .login-right { flex:1; padding:40px; display:flex; flex-direction:column; justify-content:center; }
+    .login-right h1 { color:#0c9fad; text-align:center; margin-bottom:30px; font-size:28px; }
+
+    form { display:flex; flex-direction:column; gap:15px; position:relative; }
+    input { width:100%; padding:12px 15px; border-radius:5px; border:1px solid #ccc; font-size:14px; }
+    button { padding:12px 20px; border:none; background:#ff7a00; color:white; border-radius:5px; cursor:pointer; font-size:16px; transition:0.3s; }
+    button:hover { background:#e16a00; }
+
+    .error { color:red; font-size:13px; margin-top:-10px; margin-bottom:10px; }
+
+    .show-password { position: absolute; right:15px; top:42px; cursor:pointer; font-size:14px; color:#0c9fad; user-select:none; }
+
+    .extra-links { display:flex; justify-content:space-between; margin-top:10px; font-size:14px; }
+    .extra-links a { color:#0c9fad; text-decoration:none; cursor:pointer; }
+    .extra-links a:hover { text-decoration:underline; }
+
+    @media(max-width:768px){
+        .login-wrapper { flex-direction:column; }
+        .login-left { height:200px; }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<div class="page-content">
+    <div class="login-wrapper">
+
+        <!-- LEFT IMAGE -->
+        <div class="login-left">
+            <h2>Login to Online Education</h2>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="login-right">
+            <h1>Login</h1>
+            <form id="loginForm" novalidate>
+                <input type="text" id="username" placeholder="Username" required>
+                <div class="error" id="usernameError"></div>
+
+                <div style="position:relative;">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span id="togglePassword" class="show-password">Show</span>
+                </div>
+                <div class="error" id="passwordError"></div>
+
+                <button type="submit">Login</button>
+
+                <div class="extra-links">
+                    <a id="forgotPassword">Forgot Password?</a>
+                    <a id="signUp">Sign Up</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<script>
+  
+     // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+
+
+  // Username restriction
+  const usernameInput = document.getElementById('username');
+  usernameInput.addEventListener('input', function() {
+      this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+  });
+
+  // Show/Hide password
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  togglePassword.addEventListener('click', function() {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+      togglePassword.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+
+  // Form validation - NO POPUPS
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      document.getElementById('usernameError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+
+      let valid = true;
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if(username === ''){
+          document.getElementById('usernameError').textContent = 'Username is required';
+          valid = false;
+      }
+
+      const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+      if(password === ''){
+          document.getElementById('passwordError').textContent = 'Password is required';
+          valid = false;
+      } 
+      else if(!pwdRegex.test(password)){
+          document.getElementById('passwordError').textContent = 
+          'Min 8 chars, include A-Z, a-z, number, special';
+          valid = false;
+      }
+
+      if(valid){
+          window.location.href = '404.html';
+      }
+  });
+
+  document.getElementById('forgotPassword').onclick = () => window.location.href = "forgot.html";
+  document.getElementById('signUp').onclick = () => window.location.href = "signup.html";
+
+</script>
+
+</body>
+</html>

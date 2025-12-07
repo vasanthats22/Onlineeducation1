@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up -Online Education</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+
+html, body { 
+    max-width: 100%; 
+    overflow-x: hidden; 
+    background: #e6f2f7; 
+    color: #333; 
+    height: 100%; 
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* stack content and footer */
+    min-height: 100vh;
+}
+
+/* Centered main content */
+.main-content {
+    flex: 1; /* take available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* LEFT IMAGE */
+.left { 
+    flex: 1; 
+    background: url('live1.webp') center/cover no-repeat; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+}
+.left h2 { 
+    background: rgba(0,0,0,0.45); 
+    padding: 15px 25px; 
+    border-radius: 10px; 
+    text-align: center; 
+    font-size: 28px; 
+}
+
+/* RIGHT FORM */
+.right { 
+    flex: 1; 
+    padding: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+.right h1 { 
+    color: #0c9fad; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 28px; 
+}
+
+form { display: flex; flex-direction: column; gap: 15px; position: relative; }
+input { width: 100%; padding: 12px 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; }
+button { padding: 12px 20px; border: none; background: #ff7a00; color: white; border-radius: 5px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+button:hover { background: #e16a00; }
+
+.error { color: red; font-size: 13px; margin-top: -10px; margin-bottom: 10px; }
+.show-pass { font-size: 12px; cursor: pointer; color: #0c9fad; text-align: right; margin-top: -10px; margin-bottom: 10px; }
+
+.extra-links { display: flex; justify-content: center; margin-top: 10px; font-size: 14px; }
+.extra-links a { color: #0c9fad; text-decoration: none; cursor: pointer; transition: 0.3s; margin: 0 10px; }
+.extra-links a:hover { text-decoration: underline; }
+
+
+
+@media(max-width:768px){
+    .wrapper { flex-direction: column; }
+    .left, .right { flex: unset; width: 100%; }
+    .left { height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- HEADER -->
+<div id="header-placeholder"></div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div class="wrapper">
+        <!-- LEFT IMAGE -->
+        <div class="left">
+            <h2>Create Account</h2>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="right">
+            <h1>Sign Up</h1>
+            <form id="signupForm" novalidate>
+                <input type="text" id="fullname" placeholder="Full Name" required>
+                <div class="error" id="fullnameError"></div>
+
+                <input type="email" id="email" placeholder="Email" required>
+                <div class="error" id="emailError"></div>
+
+                <input type="text" id="mobile" placeholder="Mobile Number" required maxlength="10">
+                <div class="error" id="mobileError"></div>
+
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="error" id="passwordError"></div>
+                <div class="show-pass" id="togglePass">Show Password</div>
+
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <div class="error" id="confirmError"></div>
+                <div class="show-pass" id="toggleConfirm">Show Password</div>
+
+                <button type="submit" id="submitBtn" disabled>Sign Up</button>
+
+                <div class="extra-links">
+                    <a id="backLogin">Back to Login</a>
+                    <a id="forgotPass">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>    
+
+<script>
+  // Load header
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Header Interactions
+      const menuBtn = document.querySelector('.menu-btn');
+      const homeArrow = document.querySelector('.home-link span');
+
+      menuBtn?.addEventListener('click', () => {
+        document.getElementById('navBar').classList.toggle('active');
+      });
+
+      homeArrow?.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const li = event.target.closest('li');
+        li.classList.toggle('show-submenu');
+      });
+    });
+
+  // Load footer
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+
+      // Subscribe button JS (after footer is loaded)
+      const subscribeBtn = document.getElementById('subscribeButton');
+      const emailInput = document.getElementById('newsletterEmail');
+      const emailError = document.getElementById('emailError');
+
+      subscribeBtn?.addEventListener('click', function(e) {
+        const email = emailInput.value.trim();
+        const valid = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+        if (valid.test(email)) {
+          // Redirect to 404error.html only if email is valid
+          window.location.href = '404.html';
+        } else {
+          e.preventDefault();
+          emailError.style.display = 'block';
+          emailInput.style.border = '2px solid #ff7a00';
+        }
+      });
+
+      emailInput?.addEventListener('input', function() {
+        emailError.style.display = 'none';
+        emailInput.style.border = 'none';
+      });
+    });
+
+  // Animate service boxes on scroll
+  const serviceBoxes = document.querySelectorAll('.service-box');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.animation = `fadeInUp 0.8s forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+      }
+    });
+  }, {threshold:0.2});
+  serviceBoxes.forEach(box => observer.observe(box));
+</script>
+
+<script>
+// Show/hide password
+document.getElementById('togglePass').addEventListener('click', function(){
+    const password = document.getElementById('password');
+    password.type = password.type === 'password' ? 'text' : 'password';
+});
+document.getElementById('toggleConfirm').addEventListener('click', function(){
+    const confirm = document.getElementById('confirmPassword');
+    confirm.type = confirm.type === 'password' ? 'text' : 'password';
+});
+
+// Inputs & validation
+const fullnameInput = document.getElementById('fullname');
+const emailInput = document.getElementById('email');
+const mobileInput = document.getElementById('mobile');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirmPassword');
+const submitBtn = document.getElementById('submitBtn');
+
+const fullnameError = document.getElementById('fullnameError');
+const emailError = document.getElementById('emailError');
+const mobileError = document.getElementById('mobileError');
+const passwordError = document.getElementById('passwordError');
+const confirmError = document.getElementById('confirmError');
+
+fullnameInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^A-Za-z\s]/g,'');
+    fullnameError.textContent = this.value.trim()==='' ? 'Full Name is required' : '';
+    checkFormValidity();
+});
+
+emailInput.addEventListener('input', function() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(this.value.trim() === '') emailError.textContent = 'Email is required';
+    else if(!emailRegex.test(this.value)) emailError.textContent = 'Enter a valid email';
+    else emailError.textContent = '';
+    checkFormValidity();
+});
+
+mobileInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g,'');
+    mobileError.textContent = this.value.length!==10 ? 'Mobile number must be 10 digits' : '';
+    checkFormValidity();
+});
+
+passwordInput.addEventListener('input', function() {
+    const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    if(this.value.trim()==='') passwordError.textContent = 'Password is required';
+    else if(!pwdRegex.test(this.value)) passwordError.textContent = 'Min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char';
+    else passwordError.textContent = '';
+    checkFormValidity();
+});
+
+confirmPasswordInput.addEventListener('input', function() {
+    confirmError.textContent = this.value !== passwordInput.value ? 'Passwords do not match' : '';
+    checkFormValidity();
+});
+
+function checkFormValidity() {
+    const valid = 
+        fullnameInput.value.trim()!=='' && fullnameError.textContent===''
+        && emailInput.value.trim()!=='' && emailError.textContent===''
+        && mobileInput.value.trim()!=='' && mobileError.textContent===''
+        && passwordInput.value.trim()!=='' && passwordError.textContent===''
+        && confirmPasswordInput.value.trim()!=='' && confirmError.textContent==='';
+    submitBtn.disabled = !valid;
+}
+
+document.getElementById('signupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!submitBtn.disabled){
+        window.location.href = '404.html';
+    }
+});
+
+document.getElementById('backLogin').addEventListener('click', function(){ window.location.href='login.html'; });
+document.getElementById('forgotPass').addEventListener('click', function(){ window.location.href='forgot.html'; });
+</script>
+
+</body>
+</html>
